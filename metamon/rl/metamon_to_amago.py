@@ -435,6 +435,7 @@ class MetamonTstepEncoder(amago.nets.tstep_encoders.TstepEncoder):
         self.extra_emb = nn.Linear(rl2_space.shape[-1], extra_emb_dim)
         base_numerical_features = obs_space["numbers"].shape[0]
         base_text_features = obs_space["text_tokens"].shape[0]
+        self.scratch_tokens = scratch_tokens
         self.turn_embedding = TransformerTurnEmbedding(
             tokenizer=tokenizer,
             token_embedding_dim=d_model,
