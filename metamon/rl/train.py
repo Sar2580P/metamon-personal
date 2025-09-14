@@ -73,6 +73,18 @@ def add_cli(parser):
         help="Resume training from an existing run with this run_name. Provide the epoch checkpoint to load.",
     )
     parser.add_argument(
+        "--ckpt_interval",
+        type=int,
+        default=2,
+        help="Number of epochs between saving model checkpoints.",
+    )
+    parser.add_argument(
+        "--val_interval",
+        type=int,
+        default=None,
+        help="Number of epochs between validations. Default None skips validation entirely.",
+    )
+    parser.add_argument(
         "--epochs",
         type=int,
         default=100,
